@@ -1,0 +1,179 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+main {
+  padding: 20px;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.footer-secondary {
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.footer-column {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.footer-column nav ul {
+  flex-direction: column;
+}
+
+.footer-column ul li {
+  margin: 0;
+}
+
+.footer-column ul li a {
+  font-size: 16px;
+  padding: 5px 80px;
+  margin: 8px 0;
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+ul li a {
+  font-size: 16px;
+  color: #555;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+ul li a:hover {
+  color: #fff;
+}
+
+.footer-info {
+  margin-bottom: 10px;
+  margin-right: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-info .gps-icon {
+  display: flex;
+  align-items: center;
+}
+
+.footer-info .gps-icon i {
+  font-size: 34px;
+  margin-right: 5px;
+}
+
+.footer-info p {
+  color: #fff;
+  margin: 5px 0;
+}
+
+.footer-info a {
+  color: #fff;
+  margin: 5px 0;
+}
+
+.footer-info a:hover,
+.footer-info a:active {
+  color: #fff;
+}
+
+.footer-info i {
+  font-size: 34px;
+  margin-right: 5px;
+}
+
+.footer-logo img {
+  max-width: 100px;
+}
+
+.footer-logo img {
+  max-width: 230px;
+  /* Ajusta el tamaño máximo deseado */
+  height: auto;
+  /* Para mantener la proporción de aspecto */
+}
+
+/* HEADER */
+
+#header {
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  /* Ajusta el valor del padding vertical según tus necesidades */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#logo {
+  margin-right: 20px;
+}
+
+#logo img {
+  max-height: 180px;
+  /* Ajusta el valor del tamaño vertical de la imagen según tus necesidades */
+}
+
+#header ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+#header ul li {
+  margin-left: 10px;
+}
+
+#header ul li:first-child {
+  margin-left: 0;
+}
+
+#header ul li a {
+  text-decoration: none;
+  color: #fff;
+}

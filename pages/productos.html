@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carnes AG - Productos</title>
+  <link rel="icon" href="../assets/logoAG.png" type="image/png">
+  <link rel="stylesheet" href="../css/styles.css">
+  <!-- Agrega el enlace a Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+  <header id="header">
+    <div id="logo">
+      <img src="../assets/logoAG.png" alt="Logo Carnes AG">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">INICIO</a></li>
+        <li><a href="nosotros.html">NOSOTROS</a></li>
+        <li><a href="productos.php">PRODUCTOS</a></li>
+        <li><a href="sucursal.html">SUCURSAL</a></li>
+        <li><a href="contacto.html">CONTACTO</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Nuestros Productos</h1>
+    <?php
+        // Conexión a la base de datos
+        $servername = "TU_SERVIDOR";
+        $username = "TU_USUARIO";
+        $password = "TU_CONTRASEÑA";
+        $database = "TU_BASE_DE_DATOS";
+
+        $conn = new mysqli($servername, $username, $password, $database);
+
+        if ($conn->connect_error) {
+            die("Error al conectar a la base de datos: " . $conn->connect_error);
+        }
+
+        // Consulta a la base de datos para obtener los productos
+        $sql = "SELECT id, nombre, tipificacion FROM productos";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            // Mostrar los productos
+            echo "<div class='productos'>";
+            while ($row = $result->fetch_assoc()) {
+                echo "<div class='producto'>";
+                echo "<h2>ID: " . $row['id'] . "</h2>";
+                echo "<h3>Nombre: " . $row['nombre'] . "</h3>";
+                echo "<p>Tipificación: " . $row['tipificacion'] . "</p>";
+                echo "</div>";
+            }
+            echo "</div>";
+        } else {
+            echo "No se encontraron productos.";
+        }
+
+        $conn->close();
+        ?>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Carnes AG. Todos los derechos reservados.</p>
+  </footer>
+  <div class="footer-secondary">
+    <div class="footer-column">
+      <nav>
+        <ul>
+          <li><a href="index.html">INICIO</a></li>
+          <li><a href="nosotros.html">NOSOTROS</a></li>
+          <li><a href="productos.php">PRODUCTOS</a></li>
+          <li><a href="sucursal.html">SUCURSAL</a></li>
+          <li><a href="contacto.html">CONTACTO</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-column center-column">
+      <div class="footer-logo">
+        <img src="../assets/logoAG.png" alt="Logo Carnes AG">
+      </div>
+    </div>
+
+    <div class="footer-column">
+      <div class="footer-info">
+        <h3>INFORMACIONES</h3>
+        <p>contacto@carnesag.cl</p>
+        <p>Teléfono: 32 2 213124</p>
+        <p>Juana Ross 155, Valparaíso</p>
+        <div class="gps-icon">
+          <a href="https://goo.gl/maps/FPyb7idvQ7upPeX79" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-map-marker-alt"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
