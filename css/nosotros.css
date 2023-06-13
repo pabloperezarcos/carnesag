@@ -33,9 +33,13 @@ main {
 }
 
 h1 {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 45px;
+    font-weight: bold;
     color: #333;
-    font-size: 28px;
 }
+
+
 
 p {
     color: #555;
@@ -51,4 +55,47 @@ footer {
 
 footer p {
     margin: 0;
+}
+
+/* estilo tabla */
+table.content-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table.content-table td {
+    padding: 20px;
+    vertical-align: top;
+}
+
+div.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.image-container img {
+    max-width: 200px;
+    margin: 10px;
+}
+
+td div {
+    text-align: justify;
+}
+
+td img {
+    max-width: 100%;
+    height: auto;
+}
+
+td.left-image img.small-image {
+    max-width: 30%;
+}
+
+td.left-image img.small-image2 {
+    max-width: 60%;
+}
+
+td.left-image img.small-image3 {
+    max-width: 90%;
 }

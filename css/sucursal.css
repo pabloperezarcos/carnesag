@@ -33,8 +33,10 @@ main {
 }
 
 h1 {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 45px;
+    font-weight: bold;
     color: #333;
-    font-size: 28px;
 }
 
 p {

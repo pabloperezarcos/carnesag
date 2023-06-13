@@ -29,37 +29,18 @@
     </header>
 
     <main>
-        <h1>Nuestra Sucursal</h1>
+        <h1>CASA MATRIZ</h1>
         <div class="sucursal">
-            <h2>Casa Matriz</h2>
-            <p>Dirección: Juana Ross 155, Valparaíso</p>
-            <p>Teléfono: 32 - 221 3124</p>
-            <p>Horario: Lunes a Viernes, 8:00 AM - 14:00 PM</p>
+            <p>Fono: 32 2 213124</p>
+            <p>Juana Ross 155, Valparaíso</p>
+            <p>Lunes a Viernes, 8:00 AM - 14:00 PM</p>
         </div>
-        <div id="map"></div>
+        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1g-Gl5yZgoADQ5Ki-VAKL_2w9euh55jA&ehbc=2E312F" width="640" height="480"></iframe>
     </main>
 
     <footer>
         <p>&copy; 2023 Carnes AG. Todos los derechos reservados.</p>
     </footer>
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap" async defer></script>
-    <script>
-        function initMap() {
-            const mapOptions = {
-                center: { lat: -33.047716, lng: -71.623155 },
-                zoom: 15,
-            };
-
-            const map = new google.maps.Map(document.getElementById("map"), mapOptions);
-
-            const marker = new google.maps.Marker({
-                position: { lat: -33.047716, lng: -71.623155 },
-                map: map,
-                title: "Carnes AG - Sucursal",
-            });
-        }
-    </script>
 
     <div class="footer-secondary">
         <div class="footer-column">
