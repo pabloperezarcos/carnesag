@@ -1,6 +1,6 @@
 <?php
-$servername = "TU_SERVIDOR";
-$username = "TU_USUARIO";
-$password = "TU_CONTRASEÑA";
-$database = "TU_BASE_DE_DATOS";
+$servername = "localhost";
+$username = "carnesag_admin";
+$password = "Admin9578.";
+$database = "carnesag_website";
 ?>
