@@ -9,8 +9,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Carnes AG - Productos</title>
-  <link rel="icon" href="../assets/logoAG.png" type="image/png">
+  <link rel="icon" href="assets/logoBarra.png" type="image/png">
   <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/productos.css">
   <!-- Agrega el enlace a Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <!-- Enlace a fuentes de Google -->
@@ -24,7 +25,7 @@
     </div>
     <nav>
       <ul>
-        <li><a href="index.html">INICIO</a></li>
+        <li><a href="../index.html">INICIO</a></li>
         <li><a href="nosotros.html">NOSOTROS</a></li>
         <li><a href="productos.php">PRODUCTOS</a></li>
         <li><a href="sucursal.html">SUCURSAL</a></li>
@@ -77,7 +78,7 @@
           $categoria_seleccionada = $_GET['categoria'];
 
           // Consulta a la base de datos para obtener los productos de la categoría seleccionada
-          $sql_productos = "SELECT id, nombre, tipificacion FROM productos WHERE categoria_id = $categoria_seleccionada";
+          $sql_productos = "SELECT id, nombre, descripcion, imagen FROM productos WHERE categoria_id = $categoria_seleccionada";
           $result_productos = $conn->query($sql_productos);
 
           if ($result_productos->num_rows > 0) {
@@ -87,7 +88,8 @@
                   echo "<div class='producto'>";
                   echo "<h2>ID: " . $row['id'] . "</h2>";
                   echo "<h3>Nombre: " . $row['nombre'] . "</h3>";
-                  echo "<p>Tipificación: " . $row['tipificacion'] . "</p>";
+                  echo "<p>Descripción: " . $row['descripcion'] . "</p>";
+                  echo "<img src='" . $row['imagen'] . "' alt='" . $row['nombre'] . "'>";
                   echo "</div>";
               }
               echo "</div>";
@@ -107,7 +109,7 @@
     <div class="footer-column">
       <nav>
         <ul>
-          <li><a href="index.html">INICIO</a></li>
+          <li><a href="../index.html">INICIO</a></li>
           <li><a href="nosotros.html">NOSOTROS</a></li>
           <li><a href="productos.php">PRODUCTOS</a></li>
           <li><a href="sucursal.html">SUCURSAL</a></li>
