@@ -33,8 +33,10 @@ main {
 }
 
 h1 {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 45px;
+    font-weight: bold;
     color: #333;
-    font-size: 28px;
 }
 
 p {
@@ -42,13 +44,104 @@ p {
     line-height: 1.6;
 }
 
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
+section.highlight-section {
+    background-color: #f8f8f8;
+    padding: 40px 0;
 }
 
-footer p {
+section.featured-products-section {
+    padding: 40px 0;
+}
+
+.section.featured-products-section h2 {
+    color: #333;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.product-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.product-card img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 10px;
+}
+
+.product-card h3 {
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.product-card p {
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.product-card a {
+    display: inline-block;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.product-card a:hover {
+    background-color: #555;
+}
+
+section.testimonials-section {
+    background-color: #f8f8f8;
+    padding: 40px 0;
+}
+
+.section.testimonials-section h2 {
+    color: #333;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.testimonial {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.testimonial img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.testimonial blockquote {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.testimonial blockquote p {
     margin: 0;
+}
+
+.testimonial blockquote footer {
+    margin-top: 10px;
+    color: #777;
+}
+
+.testimonial blockquote footer cite {
+    font-style: italic;
 }

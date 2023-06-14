@@ -1,3 +1,7 @@
+<?php
+  include '../scripts/config.php';
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -9,6 +13,8 @@
   <link rel="stylesheet" href="../css/styles.css">
   <!-- Agrega el enlace a Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <!-- Enlace a fuentes de Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -28,41 +34,70 @@
   </header>
 
   <main>
-    <h1>Nuestros Productos</h1>
-    <?php
-        // Conexión a la base de datos
-        $servername = "TU_SERVIDOR";
-        $username = "TU_USUARIO";
-        $password = "TU_CONTRASEÑA";
-        $database = "TU_BASE_DE_DATOS";
+    <div class="categorias-columna">
+      <h2>Categorías</h2>
+      <nav>
+        <ul class="categorias">
+          <?php
+            // Conexión a la base de datos
+            $conn = new mysqli($servername, $username, $password, $database);
 
-        $conn = new mysqli($servername, $username, $password, $database);
-
-        if ($conn->connect_error) {
-            die("Error al conectar a la base de datos: " . $conn->connect_error);
-        }
-
-        // Consulta a la base de datos para obtener los productos
-        $sql = "SELECT id, nombre, tipificacion FROM productos";
-        $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-            // Mostrar los productos
-            echo "<div class='productos'>";
-            while ($row = $result->fetch_assoc()) {
-                echo "<div class='producto'>";
-                echo "<h2>ID: " . $row['id'] . "</h2>";
-                echo "<h3>Nombre: " . $row['nombre'] . "</h3>";
-                echo "<p>Tipificación: " . $row['tipificacion'] . "</p>";
-                echo "</div>";
+            if ($conn->connect_error) {
+                die("Error al conectar a la base de datos: " . $conn->connect_error);
             }
-            echo "</div>";
-        } else {
-            echo "No se encontraron productos.";
-        }
 
-        $conn->close();
-        ?>
+            // Consulta a la base de datos para obtener las categorías de productos
+            $sql_categorias = "SELECT id, nombre FROM categorias_productos";
+            $result_categorias = $conn->query($sql_categorias);
+
+            // Mostrar las categorías de productos
+            if ($result_categorias->num_rows > 0) {
+              while ($row_categoria = $result_categorias->fetch_assoc()) {
+                echo "<li><a href='productos.php?categoria=" . $row_categoria['id'] . "'>" . $row_categoria['nombre'] . "</a></li>";
+              }
+            }
+
+            $conn->close();
+          ?>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="productos-columna">
+      <h1>Nuestros Productos</h1>
+      <?php
+          // Conexión a la base de datos
+          $conn = new mysqli($servername, $username, $password, $database);
+
+          if ($conn->connect_error) {
+              die("Error al conectar a la base de datos: " . $conn->connect_error);
+          }
+
+          // Obtener el ID de la categoría seleccionada desde la URL
+          $categoria_seleccionada = $_GET['categoria'];
+
+          // Consulta a la base de datos para obtener los productos de la categoría seleccionada
+          $sql_productos = "SELECT id, nombre, tipificacion FROM productos WHERE categoria_id = $categoria_seleccionada";
+          $result_productos = $conn->query($sql_productos);
+
+          if ($result_productos->num_rows > 0) {
+              // Mostrar los productos
+              echo "<div class='productos'>";
+              while ($row = $result_productos->fetch_assoc()) {
+                  echo "<div class='producto'>";
+                  echo "<h2>ID: " . $row['id'] . "</h2>";
+                  echo "<h3>Nombre: " . $row['nombre'] . "</h3>";
+                  echo "<p>Tipificación: " . $row['tipificacion'] . "</p>";
+                  echo "</div>";
+              }
+              echo "</div>";
+          } else {
+              echo "No se encontraron productos en esta categoría.";
+          }
+
+          $conn->close();
+      ?>
+    </div>
   </main>
 
   <footer>
