@@ -34,39 +34,13 @@
     </nav>
   </header>
 
-  <main>
-    <div class="categorias-columna">
-      <h2>Categorías</h2>
-      <nav>
-        <ul class="categorias">
-          <?php
-            // Conexión a la base de datos
-            $conn = new mysqli($servername, $username, $password, $database);
+<main>
 
-            if ($conn->connect_error) {
-                die("Error al conectar a la base de datos: " . $conn->connect_error);
-            }
-
-            // Consulta a la base de datos para obtener las categorías de productos
-            $sql_categorias = "SELECT id, nombre FROM categorias_productos";
-            $result_categorias = $conn->query($sql_categorias);
-
-            // Mostrar las categorías de productos
-            if ($result_categorias->num_rows > 0) {
-              while ($row_categoria = $result_categorias->fetch_assoc()) {
-                echo "<li><a href='productos.php?categoria=" . $row_categoria['id'] . "'>" . $row_categoria['nombre'] . "</a></li>";
-              }
-            }
-
-            $conn->close();
-          ?>
-        </ul>
-      </nav>
-    </div>
-
-    <div class="productos-columna">
-      <h1>Nuestros Productos</h1>
-      <?php
+  <div class="categorias-container">
+    <h2>Categorías</h2>
+    <nav>
+      <ul class="categorias">
+        <?php
           // Conexión a la base de datos
           $conn = new mysqli($servername, $username, $password, $database);
 
@@ -74,33 +48,67 @@
               die("Error al conectar a la base de datos: " . $conn->connect_error);
           }
 
-          // Obtener el ID de la categoría seleccionada desde la URL
-          $categoria_seleccionada = $_GET['categoria'];
+          // Consulta a la base de datos para obtener las categorías de productos
+          $sql_categorias = "SELECT id, nombre FROM categorias";
+          $result_categorias = $conn->query($sql_categorias);
 
-          // Consulta a la base de datos para obtener los productos de la categoría seleccionada
-          $sql_productos = "SELECT id, nombre, descripcion, imagen FROM productos WHERE categoria_id = $categoria_seleccionada";
-          $result_productos = $conn->query($sql_productos);
-
-          if ($result_productos->num_rows > 0) {
-              // Mostrar los productos
-              echo "<div class='productos'>";
-              while ($row = $result_productos->fetch_assoc()) {
-                  echo "<div class='producto'>";
-                  echo "<h2>ID: " . $row['id'] . "</h2>";
-                  echo "<h3>Nombre: " . $row['nombre'] . "</h3>";
-                  echo "<p>Descripción: " . $row['descripcion'] . "</p>";
-                  echo "<img src='" . $row['imagen'] . "' alt='" . $row['nombre'] . "'>";
-                  echo "</div>";
-              }
-              echo "</div>";
-          } else {
-              echo "No se encontraron productos en esta categoría.";
+          // Mostrar las categorías de productos
+          if ($result_categorias->num_rows > 0) {
+            while ($row_categoria = $result_categorias->fetch_assoc()) {
+              echo "<li><a href='productos.php?categoria=" . $row_categoria['id'] . "'>" . ucwords($row_categoria['nombre']) . "</a></li>";
+            }
           }
 
           $conn->close();
-      ?>
-    </div>
-  </main>
+        ?>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="productos-container">
+  <?php
+    // Conexión a la base de datos
+    $conn = new mysqli($servername, $username, $password, $database);
+
+    if ($conn->connect_error) {
+        die("Error al conectar a la base de datos: " . $conn->connect_error);
+    }
+
+    // Verificar si se ha seleccionado una categoría
+    if (isset($_GET['categoria'])) {
+      // Obtener el ID de la categoría seleccionada desde la URL
+      $categoria_seleccionada = $_GET['categoria'];
+
+      // Consulta a la base de datos para obtener los productos de la categoría seleccionada
+      $sql_productos = "SELECT id, nombre, descripcion, imagen FROM productos WHERE categoria_id = $categoria_seleccionada";
+      $result_productos = $conn->query($sql_productos);
+
+      if ($result_productos->num_rows > 0) {
+          echo "<h1>Nuestros Productos</h1>";
+          echo "<div class='productos-grid'>"; // Aplicar la clase directamente aquí
+          while ($row = $result_productos->fetch_assoc()) {
+            echo "<div class='producto'>";
+            echo "<h2>" . ucwords($row['nombre']) . "</h2>";
+            echo "<p>Descripción: " . $row['descripcion'] . "</p>";
+            echo "<p>ID: " . $row['id'] . "</p>";
+            echo "<img src=\"../" . $row['imagen'] . "\" alt=\"" . $row['nombre'] . "\">";
+            echo "</div>";  
+          }
+          echo "</div>";
+      } else {
+          echo "<p>No se encontraron productos en esta categoría.</p>";
+      }
+    } else {
+      echo "<h1>Seleccione una categoría</h1>";
+    }
+
+    $conn->close();
+  ?>
+</div>
+
+
+</main>
+
 
   <footer>
     <p>&copy; 2023 Carnes AG. Todos los derechos reservados.</p>

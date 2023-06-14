@@ -27,3 +27,38 @@ footer {
 footer p {
     margin: 0;
 }
+
+.productos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.producto {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    width: calc(25% - 20px);
+    margin-bottom: 30px;
+}
+
+.producto h4 {
+    margin-top: 0;
+}
+
+.producto h2 {
+    margin-bottom: 5px;
+    line-height: 1.2;
+}
+
+.producto p {
+    margin-bottom: 5px;
+    line-height: 1.2;
+}
+
+.producto img {
+    width: 70%;
+    height: auto;
+    border-radius: 10px;
+}
