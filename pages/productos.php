@@ -89,8 +89,8 @@
           while ($row = $result_productos->fetch_assoc()) {
             echo "<div class='producto'>";
             echo "<h2>" . ucwords($row['nombre']) . "</h2>";
-            echo "<p>Descripción: " . $row['descripcion'] . "</p>";
-            echo "<p>ID: " . $row['id'] . "</p>";
+            echo "<p>" . $row['descripcion'] . "</p>";
+/*             echo "<p>ID: " . $row['id'] . "</p>"; */
             echo "<img src=\"../" . $row['imagen'] . "\" alt=\"" . $row['nombre'] . "\">";
             echo "</div>";  
           }
