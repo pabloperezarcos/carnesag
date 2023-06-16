@@ -9,7 +9,7 @@ include '../scripts/config.php';
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Carnes AG - Productos</title>
-  <link rel="icon" href="assets/logoBarra.png" type="image/png">
+  <link rel="icon" href="../assets/logoBarra.png" type="image/png">
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/productos.css">
   <!-- Agrega el enlace a Font Awesome -->

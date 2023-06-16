@@ -5,9 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Carnes AG - Nosotros</title>
-  <link rel="icon" href="assets/logoBarra.png" type="image/png">
+  <link rel="icon" href="../assets/logoBarra.png" type="image/png">
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/nosotros.css">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="../css/bootstrap-5.3.0-dist/css/bootstrap.min.css">
   <!-- Enlace a Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <!-- Enlace a fuentes de Google -->
@@ -31,88 +33,92 @@
     </nav>
   </header>
 
-  <main>
-    <div>
-      <h1>SOBRE NOSOTROS</h1>
+  <div class="presentacion">
+    <img src="../assets/trabajadores.jpg" alt="Logo Carnes AG">
+  </div>
 
-      <table class="content-table">
-        <tr>
-          <td>
-            <div>
-              <p>
-                Desde su establecimiento en 1999, Comercializadora de Carnes AG se ha posicionado como una destacada
-                distribuidora de carnes y productos alimenticios. A lo largo de los años, nuestra empresa ha
-                experimentado
-                un crecimiento significativo y se ha convertido en líder en su sector. Este éxito se ha logrado gracias
-                a
-                dos decisiones fundamentales.
-              </p>
+  <main class="container">
+    <section class="featured-products-section">
+      <section class="jumbotron">
+        <h2 class="display-4">NUESTRA EMPRESA</h2>
+        <br>
+      </section>
+
+      <div class="row align-items-center my-4">
+        <div class="col-md-6">
+          <p class="text-justify">
+            Desde su establecimiento en 1999, Comercializadora de Carnes AG se ha posicionado como una destacada
+            distribuidora de carnes y productos alimenticios. A lo largo de los años, nuestra empresa ha experimentado
+            un crecimiento significativo y se ha convertido en líder en su sector. Este éxito se ha logrado gracias a
+            dos decisiones fundamentales.
+          </p>
+        </div>
+        <div class="col-md-6">
+          <img src="../assets/Sala producción.png" alt="foto de sala de produccion" class="img-fluid">
+        </div>
+      </div>
+
+      <div class="row align-items-center my-4">
+        <div class="col-md-6">
+          <p class="text-justify">
+            En primer lugar, nos enorgullece contar con una planta procesadora de alimentos de última generación ubicada
+            en la calle Juana Ross #155. Esta moderna instalación nos permite llevar a cabo todas nuestras operaciones
+            de manera eficiente y garantizar la frescura y calidad de nuestros productos.
+          </p>
+          <p class="text-justify">
+            En segundo lugar, nos esforzamos por cumplir con los más altos estándares de seguridad alimentaria. Por
+            ello, hemos implementado en todas nuestras operaciones los rigurosos criterios de la normativa de inocuidad
+            H.A.C.C.P. Este enfoque integral nos permite identificar y controlar de manera efectiva los posibles riesgos
+            para la seguridad alimentaria, asegurando así la calidad y la confianza en nuestros productos para nuestros
+            valiosos clientes.
+          </p>
+        </div>
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-md-6">
+              <img src="../assets/zonadespacho.png" alt="foto de despacho" class="img-fluid">
             </div>
-          </td>
-          <td>
-            <img src="../assets/trabajadores.jpg" alt="foto de trabajadores">
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div>
-              <p>
-                En primer lugar, hemos establecido una moderna planta procesadora de alimentos ubicada en la calle Juana
-                Ross #155, donde operamos actualmente. En segundo lugar, hemos implementado en todas nuestras
-                operaciones
-                los rigurosos criterios de la normativa de inocuidad H.A.C.C.P, lo que garantiza la calidad y seguridad
-                de
-                nuestros productos para nuestros clientes.
-              </p>
+            <div class="col-md-6">
+              <img src="../assets/interiorEmpresa.jpg" alt="foto del interior de la empresa" class="img-fluid">
             </div>
-          </td>
-          <td class="left-image">
-            <img src="../assets/interiorEmpresa.jpg" alt="foto del interior de la empresa" class="small-image">
-            <img src="../assets/cortador.png" alt="foto de trabajador" class="small-image2">
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div>
-              <p>
-                Además de servir a una amplia gama de clientes en la quinta región, como universidades, casinos,
-                empresas
-                del sector gastronómico y turístico, clínicas y organismos públicos, también atendemos a instituciones
-                estatales a través del mercado público en la quinta región y la región metropolitana de Chile. Para
-                brindar un servicio eficiente, contamos con el respaldo de dos empresas de transporte exclusivas, lo que
-                nos permite garantizar entregas rápidas y oportunas sin costos adicionales.
-              </p>
-              <div>
-                <img src="../assets/logo-chilecompra.png" alt="Logo ChileCompra">
-              </div>
-            </div>
-          </td>
-          <td class="left-image">
-            <img src="../assets/camionetas.jpg" alt="foto de camionetas" class="small-image3">
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <img src="../assets/haccp.png" alt="HACCP LOGO">
-          </td>
-          <td>
-            <div>
-              <p>
-                El sistema H.A.C.C.P., cuyo acrónimo significa "Sistema de Análisis de Peligros y Puntos Críticos de
-                Control", es un enfoque integral que nos permite identificar, evaluar y controlar de manera efectiva los
-                peligros significativos para la inocuidad de los alimentos. Nos brinda la confianza de que estamos
-                gestionando de forma eficiente la seguridad alimentaria. Este sistema se enfoca en la identificación de
-                peligros y en la implementación de controles para garantizar que nuestros productos no representen
-                ningún
-                riesgo para los consumidores.
-              </p>
-            </div>
-          </td>
-        </tr>
-      </table>
-    </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row align-items-center my-4">
+        <div class="col-md-6">
+          <p class="text-justify">
+            Además de servir a una amplia gama de clientes en la quinta región, como universidades, casinos, empresas
+            del sector gastronómico y turístico, clínicas y organismos públicos, también atendemos a instituciones
+            estatales a través del mercado público en la quinta región y la región metropolitana de Chile. Para
+            brindar un servicio eficiente, contamos con el respaldo de dos empresas de transporte exclusivas, lo que
+            nos permite garantizar entregas rápidas y oportunas sin costos adicionales.
+          </p>
+        </div>
+        <div class="col-md-6">
+          <img src="../assets/camionetas.jpg" alt="foto de camionetas" class="img-fluid">
+        </div>
+      </div>
+
+      <div class="row align-items-center my-4">
+        <div class="col-md-6">
+          <img src="../assets/logo-chilecompra.png" alt="Logo ChileCompra" class="img-fluid"
+            style="max-width: 300px; height: auto;">
+          <img src="../assets/haccp.png" alt="HACCP LOGO" class="img-fluid" style="max-width: 300px; height: auto;">
+        </div>
+        <div class="col-md-6">
+          <p class="text-justify">
+            El sistema H.A.C.C.P., cuyo acrónimo significa "Sistema de Análisis de Peligros y Puntos Críticos de
+            Control", es un enfoque integral que nos permite identificar, evaluar y controlar de manera efectiva los
+            peligros significativos para la inocuidad de los alimentos. Nos brinda la confianza de que estamos
+            gestionando de forma eficiente la seguridad alimentaria. Este sistema se enfoca en la identificación de
+            peligros y en la implementación de controles para garantizar que nuestros productos no representen ningún
+            riesgo para los consumidores.
+          </p>
+        </div>
+      </div>
+    </section>
   </main>
-
 
   <footer>
     <p>&copy; 2023 Carnes AG. Todos los derechos reservados.</p>
@@ -150,6 +156,8 @@
     </div>
   </div>
 
+  <!-- Scripts de Bootstrap y otros -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

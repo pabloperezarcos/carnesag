@@ -4,6 +4,41 @@ body {
     padding: 0;
 }
 
+.jumbotron h2 {
+    font-size: 48px;
+    /* Tamaño de fuente más grande */
+    font-weight: bold;
+    /* Estilo de fuente en negrita */
+    color: #b9270d;
+    /* Color del texto destacado */
+    text-align: center;
+    /* Alineación del texto en el centro */
+    text-transform: uppercase;
+    /* Convertir el texto en mayúsculas */
+    letter-spacing: 2px;
+    /* Espaciado entre letras */
+}
+
+.jumbotron p {
+    text-align: justify;
+}
+
+/* Estilos para las imágenes en la sección de nosotros */
+.img-fluid {
+    max-height: 400px;
+    /* Ajusta el valor según tus necesidades */
+}
+
+/* Estilo para las imágenes HACCP y Logo ChileCompra */
+.img-haccp,
+.img-chilecompra {
+    max-width: 50px;
+    /* Ajusta el valor según tus necesidades */
+    height: auto;
+}
+
+
+
 header {
     background-color: #333;
     color: #fff;
@@ -98,4 +133,8 @@ td.left-image img.small-image2 {
 
 td.left-image img.small-image3 {
     max-width: 90%;
+}
+
+.text-justify {
+    text-align: justify;
 }

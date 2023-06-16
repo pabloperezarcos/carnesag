@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carnes AG - Sucursal</title>
-    <link rel="icon" href="assets/logoBarra.png" type="image/png">
+    <link rel="icon" href="../assets/logoBarra.png" type="image/png">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/sucursal.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../css/bootstrap-5.3.0-dist/css/bootstrap.min.css">
     <!-- Agrega el enlace a Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!-- Enlace a fuentes de Google -->
@@ -30,15 +32,46 @@
         </nav>
     </header>
 
+    <div class="presentacion">
+        <img src="../assets/sucursal.png" alt="Foto sucursal">
+    </div>
+
     <main>
-        <h1>ENCUÉNTRANOS</h1>
-        <div class="sucursal">
-            <p>Fono: 32 2 213124</p>
-            <p>Juana Ross 155, Valparaíso</p>
-            <p>Lunes a Viernes, 8:00 AM - 14:00 PM</p>
+        <section class="featured-products-section">
+            <section class="jumbotron">
+                <h2 class="display-4">ENCUÉNTRANOS</h2>
+            </section>
+        </section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mx-auto text-center">
+                    <div class="card text-center p-4 mt-4">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <p class="city-name"><strong>Valparaíso</strong></p>
+                            <img src="../assets/logoAG.png" alt="Logo AG" style="width: 60px;">
+                        </div>
+                        <hr class="line-separator">
+                        <div class="mt-4">
+                            <img src="../assets/mapa.png" alt="Mapa" class="img-fluid">
+                            <a href="https://goo.gl/maps/q879W2qSMsB4ZGdK6" target="_blank">
+                                <div class="map-overlay"></div>
+                            </a>
+                        </div>
+                        <div class="address-details mt-4">
+                            <p class="text-start mb-2">Juana Ross 155</p>
+                            <p class="text-start mb-0">Lunes a Viernes, 7:30 AM - 14:00 PM</p>
+                        </div>
+                        <div class="d-flex align-items-center mt-4">
+                            <img src="../assets/personal/foto_perfil.png" alt="Foto Gerente" style="width: 150px;">
+                            <div class="ms-3">
+                                <p class="mb-0">Jose Gutierrez Gutierrez</p>
+                                <p class="text-muted small">Gerente General</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1g-Gl5yZgoADQ5Ki-VAKL_2w9euh55jA&ehbc=2E312F"
-            width="640" height="480"></iframe>
     </main>
 
     <footer>

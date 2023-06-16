@@ -5,12 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Carnes AG - Contacto</title>
-  <link rel="icon" href="assets/logoBarra.png" type="image/png">
+  <link rel="icon" href="../assets/logoBarra.png" type="image/png">
+  <script src="../scripts/rut-validation.js"></script>
   <link rel="stylesheet" href="../css/styles.css">
-  <link rel="stylesheet" href="../css/index.css">
   <link rel="stylesheet" href="../css/contacto.css">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="../css/bootstrap-5.3.0-dist/css/bootstrap.min.css">
   <!-- Enlace a Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <!-- Enlace a fuentes de Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -29,30 +33,76 @@
     </nav>
   </header>
 
-  <main class="container">
-    <div class="form-container">
-      <h1 class="contacto-titulo">CONTÁCTANOS</h1>
-      <div class="contacto-info">
-        <h3>INFORMACIONES</h3>
-        <p>32 2 213124</p>
-        <p>contacto@carnesag.cl</p>
-        <p>Juana Ross 155, Valparaíso</p>
-      </div>
+  <div class="presentacion">
+    <img src="../assets/trabajadores.jpg" alt="Foto trabajadores">
+  </div>
 
-      <div class="contacto-formulario">
-        <h2>Envíanos un mensaje</h2>
-        <form action="#" method="post">
-          <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
-          <input type="email" id="email" name="email" placeholder="Email" required>
-          <input type="tel" id="celular" name="celular" placeholder="Celular" required>
-          <input type="text" id="comuna" name="comuna" placeholder="Comuna" required>
-          <textarea id="mensaje" name="mensaje" placeholder="Mensaje" required></textarea>
-          <input type="submit" value="Enviar">
-        </form>
+  <main>
+    <section class="featured-products-section">
+      <section class="jumbotron">
+        <h2 class="display-4 mb-4">ENVÍANOS UN MENSAJE</h2>
+      </section>
+    </section>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="card">
+            <div class="card-body">
+              <form action="#" method="post">
+                <div class="form-group mb-3">
+                  <label for="nombre" class="required-field">Nombre</label>
+                  <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre" required>
+                </div>
+                <div class="form-group mb-3">
+                  <label for="apellido" class="required-field">Apellido</label>
+                  <input type="text" id="apellido" name="apellido" class="form-control" placeholder="Apellido" required>
+                </div>
+                <div class="form-group mb-3">
+                  <label for="rut" class="required-field">RUT</label>
+                  <input type="text" id="rut" name="rut" class="form-control" placeholder="RUT" required
+                    pattern="\d{1,8}-[\d|kK]{1}" oninput="validarRut(this)">
+                  <small class="form-text text-muted" id="rut-validation-message"></small>
+                </div>
+                <div class="form-group mb-3">
+                  <label for="celular" class="required-field">Celular</label>
+                  <input type="tel" id="celular" name="celular" class="form-control" placeholder="Celular" required>
+                </div>
+                <div class="form-group mb-3">
+                  <label for="email" class="required-field">Email</label>
+                  <input type="email" id="email" name="email" class="form-control" placeholder="Email" required
+                    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+                </div>
+                <div class="form-group mb-3">
+                  <label for="comuna" class="required-field">Comuna</label>
+                  <input type="text" id="comuna" name="comuna" class="form-control" placeholder="Comuna" required>
+                </div>
+                <div class="form-group mb-3">
+                  <label for="motivo" class="required-field">Motivo</label>
+                  <select id="motivo" name="motivo" class="form-control" required>
+                    <option value="">Seleccione un motivo</option>
+                    <option value="consulta">Consulta</option>
+                    <option value="solicitud">Solicitud</option>
+                    <option value="reclamo">Reclamo</option>
+                  </select>
+                </div>
+                <div class="form-group mb-3">
+                  <label for="mensaje" class="required-field">Mensaje</label>
+                  <textarea id="mensaje" name="mensaje" class="form-control" placeholder="Mensaje" required
+                    maxlength="1000"></textarea>
+                  <small class="form-text text-muted" id="mensaje-counter">0/1000 caracteres</small>
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-primary btn-block my-3"
+                    formaction="../scripts/procesar_formulario.php">Enviar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </main>
-
 
   <footer>
     <p>&copy; 2023 Carnes AG. Todos los derechos reservados.</p>
@@ -89,17 +139,17 @@
         </div>
       </div>
     </div>
-    <!-- 
-      Si el código es el mismo en todas tus páginas y quieres evitar repetirlo, puedes crear un archivo separado, por ejemplo, llamado footer.html, y luego incluirlo en cada página utilizando la etiqueta <iframe> o un lenguaje de programación del lado del servidor como PHP o JavaScript.
+  </div>
 
-      Crea un archivo footer.php y coloca el código del pie de página dentro de él:
-      Luego, en cada página, donde deseas mostrar el pie de página, puedes incluir el archivo footer.php utilizando el siguiente código:
+  <script>
+    const mensajeTextarea = document.getElementById("mensaje");
+    const mensajeCounter = document.getElementById("mensaje-counter");
 
-      <?php include 'footer.php'; ?>
-
-      De esta manera, solo necesitarás modificar el archivo footer.php una vez y los cambios se   reflejarán en todas tus páginas donde incluyas el código. 
-    -->
-
+    mensajeTextarea.addEventListener("input", function () {
+      const charactersCount = mensajeTextarea.value.length;
+      mensajeCounter.textContent = charactersCount + "/1000 caracteres";
+    });
+  </script>
 </body>
 
 </html>
