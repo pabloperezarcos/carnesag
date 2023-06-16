@@ -1,5 +1,5 @@
 <?php
-  include '../scripts/config.php';
+include '../scripts/config.php';
 ?>
 
 <!DOCTYPE html>
@@ -34,18 +34,18 @@
     </nav>
   </header>
 
-<main>
+  <main>
 
-  <div class="categorias-container">
-    <h2>Categorías</h2>
-    <nav>
-      <ul class="categorias">
-        <?php
+    <div class="categorias-container">
+      <h2>Categorías</h2>
+      <nav>
+        <ul class="categorias">
+          <?php
           // Conexión a la base de datos
           $conn = new mysqli($servername, $username, $password, $database);
 
           if ($conn->connect_error) {
-              die("Error al conectar a la base de datos: " . $conn->connect_error);
+            die("Error al conectar a la base de datos: " . $conn->connect_error);
           }
 
           // Consulta a la base de datos para obtener las categorías de productos
@@ -60,54 +60,54 @@
           }
 
           $conn->close();
-        ?>
-      </ul>
-    </nav>
-  </div>
+          ?>
+        </ul>
+      </nav>
+    </div>
 
-  <div class="productos-container">
-  <?php
-    // Conexión a la base de datos
-    $conn = new mysqli($servername, $username, $password, $database);
+    <div class="productos-container">
+      <?php
+      // Conexión a la base de datos
+      $conn = new mysqli($servername, $username, $password, $database);
 
-    if ($conn->connect_error) {
+      if ($conn->connect_error) {
         die("Error al conectar a la base de datos: " . $conn->connect_error);
-    }
+      }
 
-    // Verificar si se ha seleccionado una categoría
-    if (isset($_GET['categoria'])) {
-      // Obtener el ID de la categoría seleccionada desde la URL
-      $categoria_seleccionada = $_GET['categoria'];
+      // Verificar si se ha seleccionado una categoría
+      if (isset($_GET['categoria'])) {
+        // Obtener el ID de la categoría seleccionada desde la URL
+        $categoria_seleccionada = $_GET['categoria'];
 
-      // Consulta a la base de datos para obtener los productos de la categoría seleccionada
-      $sql_productos = "SELECT id, nombre, descripcion, imagen FROM productos WHERE categoria_id = $categoria_seleccionada";
-      $result_productos = $conn->query($sql_productos);
+        // Consulta a la base de datos para obtener los productos de la categoría seleccionada
+        $sql_productos = "SELECT id, nombre, descripcion, imagen FROM productos WHERE categoria_id = $categoria_seleccionada";
+        $result_productos = $conn->query($sql_productos);
 
-      if ($result_productos->num_rows > 0) {
+        if ($result_productos->num_rows > 0) {
           echo "<h1>Nuestros Productos</h1>";
           echo "<div class='productos-grid'>"; // Aplicar la clase directamente aquí
           while ($row = $result_productos->fetch_assoc()) {
             echo "<div class='producto'>";
             echo "<h2>" . ucwords($row['nombre']) . "</h2>";
             echo "<p>" . $row['descripcion'] . "</p>";
-/*             echo "<p>ID: " . $row['id'] . "</p>"; */
+            /*             echo "<p>ID: " . $row['id'] . "</p>"; */
             echo "<img src=\"../" . $row['imagen'] . "\" alt=\"" . $row['nombre'] . "\">";
-            echo "</div>";  
+            echo "</div>";
           }
           echo "</div>";
-      } else {
+        } else {
           echo "<p>No se encontraron productos en esta categoría.</p>";
+        }
+      } else {
+        echo "<h1>Seleccione una categoría</h1>";
       }
-    } else {
-      echo "<h1>Seleccione una categoría</h1>";
-    }
 
-    $conn->close();
-  ?>
-</div>
+      $conn->close();
+      ?>
+    </div>
 
 
-</main>
+  </main>
 
 
   <footer>

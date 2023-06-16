@@ -1,7 +1,24 @@
+@font-face {
+  font-family: 'Fjalla One';
+  src: url('../assets/fonts/FjallaOne-Regular.ttf') format('truetype');
+  /* Opcional: Puedes agregar más formatos de fuente aquí para mayor compatibilidad */
+}
+
+header,
+footer,
+body {
+  font-family: "Fjalla One", "Arial Rounded MT", Arial, sans-serif;
+}
+
+.presentacion img {
+  width: 100%;
+  max-height: 750px;
+}
+
+
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
 }
 
 nav ul {
@@ -46,7 +63,7 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 15px;
+  margin-bottom: 0px;
 }
 
 .footer-column nav ul {
@@ -131,7 +148,7 @@ ul li a:hover {
 }
 
 .footer-logo img {
-  max-width: 230px;
+  max-width: 300px;
   /* Ajusta el tamaño máximo deseado */
   height: auto;
   /* Para mantener la proporción de aspecto */
@@ -150,12 +167,11 @@ ul li a:hover {
 }
 
 #logo {
-  margin-right: 20px;
+  margin-left: 50px;
 }
 
 #logo img {
-  max-height: 180px;
-  /* Ajusta el valor del tamaño vertical de la imagen según tus necesidades */
+  max-height: 110px;
 }
 
 #header ul {

@@ -8,10 +8,13 @@
   <link rel="icon" href="assets/logoBarra.png" type="image/png">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/index.css">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="css/bootstrap-5.3.0-dist/css/bootstrap.min.css">
   <!-- Agrega el enlace a Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <!-- Enlace a fuentes de Google -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -30,56 +33,98 @@
     </nav>
   </header>
 
-  <main>
-    <section class="highlight-section">
-      <h1>BIENVENIDO A CARNES AG</h1>
-      <p>Somos una comercializadora de alimentos congelados especializada en carne de vacuno y otros productos de alta
-        calidad.</p>
-      <p>Ofrecemos servicios de reparto en toda la quinta región y trabajamos con Mercado Público.</p>
+
+  <div class="presentacion">
+    <img src="assets/presentacion.JPG" alt="Logo Carnes AG">
+  </div>
+
+  <main class="container">
+    <section class="jumbotron">
+      <h2 class="display-4">Bienvenido a Carnes AG</h2>
+      <br>
+      <p class="lead">Somos una comercializadora de alimentos frescos y congelados especializada en una amplia variedad
+        de productos de alta calidad. Nuestro compromiso es ofrecerte los mejores cortes de carne de vacuno, cerdo,
+        pollo, pavo y más.</p>
+      <p>Con más de 20 años de experiencia en el rubro, nos hemos consolidado como líderes en la quinta región,
+        brindando un servicio excepcional y productos confiables.</p>
+      <p>En Carnes AG, valoramos la satisfacción del cliente y nos esforzamos por superar tus expectativas. Por eso,
+        ofrecemos un servicio de reparto rápido y confiable, para que nuestros clientes en el sector gastronómico,
+        instituciones, empresas y otros negocios puedan disfrutar de nuestros productos frescos en sus establecimientos.
+      </p>
+      <p>Además, nos enorgullece trabajar en estrecha colaboración con Mercado Público, la plataforma líder en
+        abastecimiento público en Chile. Esta asociación nos permite ofrecerte una amplia gama de opciones de productos
+        frescos y de alta calidad, garantizando así la satisfacción de nuestros clientes en el sector gastronómico,
+        instituciones y empresas.</p>
+      <p>Ya sea que estés buscando cortes jugosos para una deliciosa parrillada o ingredientes de primera calidad para
+        tus recetas favoritas, en Carnes AG encontrarás todo lo que necesitas.</p>
+      <p>Explora nuestro catálogo de productos, realiza tu pedido y descubre por qué somos la opción preferida de los
+        amantes de la buena carne.</p>
+      <div class="highlight-section">
+        <p class="highlight-text">¡Haz tu pedido ahora y disfruta de la mejor carne en Carnes AG!</p>
+        <a href="/pages/productos.php" class="btn btn-primary btn-special">Descubre nuestra variedad de productos</a>
+      </div>
     </section>
+
+
+
 
     <section class="featured-products-section">
-      <h2>PRODUCTOS DESTACADOS</h2>
-      <div class="product-card">
-        <img src="assets/producto1.jpg" alt="Producto 1">
-        <h3>Nombre del producto 1</h3>
-        <p>Descripción breve del producto 1.</p>
-        <a href="productos.php">Ver más</a>
+      <section class="jumbotron">
+        <h2 class="display-4">PRODUCTOS DESTACADOS</h2>
+        <br>
+      </section>
+
+      <div class="card">
+        <img src="assets/productos/vacuno/churrasco_posta.JPG" class="card-img-top" alt="Producto 1">
+        <div class="card-body">
+          <h5 class="card-title">CHURRASCOS POSTA ROSADA</h5>
+          <p class="card-text">Deliciosos churrascos de posta rosada, uno de nuestros productos estrella, perfectos para
+            asados, parrilladas, shawarmas y sándwiches. Disfruta de este corte jugoso y tierno que hará agua tu boca en
+            cualquier preparación.</p>
+          <a href="productos.php?categoria=6" class="btn btn-primary">Ver más</a>
+        </div>
       </div>
 
-      <div class="product-card">
-        <img src="assets/producto2.jpg" alt="Producto 2">
-        <h3>Nombre del producto 2</h3>
-        <p>Descripción breve del producto 2.</p>
-        <a href="productos.php">Ver más</a>
+      <div class="card">
+        <img src="assets/productos/vacuno/carne_molida.JPG" class="card-img-top" alt="Producto 1">
+        <div class="card-body">
+          <h5 class="card-title">MOLIDA DE VACUNO</h5>
+          <p class="card-text">Nuestra carne molida de vacuno de primera calidad es la elección perfecta para aquellos
+            que buscan hamburguesas jugosas y sabrosos platos de pasta. Con su textura suave y sabor exquisito, esta
+            carne molida te permitirá crear deliciosas recetas que satisfarán todos los paladares.</p>
+          <a href="productos.php?categoria=6" class="btn btn-primary">Ver más</a>
+        </div>
       </div>
     </section>
 
-    <section class="testimonials-section">
-      <h2>TESTIMONIOS</h2>
-      <div class="testimonial">
-        <img src="assets/cliente1.jpg" alt="Cliente 1">
-        <blockquote>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor massa ut enim rhoncus, vitae luctus
-            enim dignissim. Sed finibus, elit sit amet luctus tristique, mi arcu tincidunt urna, ac sodales leo turpis
-            vel lectus.</p>
-          <footer>
-            <cite>- Nombre del cliente 1</cite>
-          </footer>
-        </blockquote>
-      </div>
 
-      <div class="testimonial">
-        <img src="assets/cliente2.jpg" alt="Cliente 2">
-        <blockquote>
-          <p>Donec auctor varius dolor, et egestas metus gravida eu. Fusce tincidunt felis eget lectus bibendum aliquam.
-            Ut viverra tincidunt odio, at tincidunt justo ultricies non.</p>
-          <footer>
-            <cite>- Nombre del cliente 2</cite>
-          </footer>
-        </blockquote>
+    <section class="clients-section">
+      <section class="jumbotron">
+        <h2 class="display-4">ALGUNOS DE NUESTROS CLIENTES</h2>
+        <br>
+      </section>
+      <div class="client-grid">
+        <img src="assets/clientes/SENAME.png" alt="logo SENAME" class="client-logo">
+        <img src="assets/clientes/carabineros.png" alt="logo CARABINEROS" class="client-logo">
+        <img src="assets/clientes/armada.png" alt="logo ARMADA" class="client-logo">
+        <img src="assets/clientes/ejercito.png" alt="logo EJERCITO" class="client-logo">
+        <img src="assets/clientes/hospitales.png" alt="logo Hospitales" class="client-logo">
+        <img src="assets/clientes/locosxvina.png" alt="logo LXV" class="client-logo">
+        <img src="assets/clientes/hoteldiegoalmagro.png" alt="logo H.D.Almagro" class="client-logo">
+        <img src="assets/clientes/radisson.png" alt="logo Hotel Radisson" class="client-logo">
+        <img src="assets/clientes/ASM.png" alt="logo ASM" class="client-logo">
+        <img src="assets/clientes/donaanita.png" alt="logo Doña Anita" class="client-logo">
+        <img src="assets/clientes/univChile.png" alt="logo U.Chile" class="client-logo">
+        <img src="assets/clientes/univCatolica.png" alt="logo UC" class="client-logo">
+        <img src="assets/clientes/uvm.png" alt="logo UVM" class="client-logo">
+        <img src="assets/clientes/univSantaMaria.png" alt="logo USM" class="client-logo">
+        <img src="assets/clientes/club_aleman.png" alt="logo Club Aleman" class="client-logo">
+        <!-- Agrega más imágenes de clientes si es necesario -->
       </div>
     </section>
+
+
+
   </main>
 
   <footer>
@@ -100,6 +145,7 @@
     </div>
     <div class="footer-column center-column">
       <div class="footer-logo">
+        <br>
         <img src="../assets/logoAG.png" alt="Logo Carnes AG">
       </div>
     </div>
@@ -117,6 +163,12 @@
         </div>
       </div>
     </div>
+
+    <!--       <div class="footer-social">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div> -->
   </div>
 
 </body>
