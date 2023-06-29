@@ -1,5 +1,75 @@
 <?php
 include '../scripts/config.php';
+
+// Función para obtener el número de productos en el carrito de cotización
+function obtenerNumeroProductosCarrito()
+{
+  if (isset($_SESSION['carrito'])) {
+    return count($_SESSION['carrito']);
+  }
+  return 0;
+}
+
+// Verificar si se ha enviado una solicitud para agregar un producto al carrito
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['productoId'])) {
+  // Obtener el ID del producto enviado
+  $productoId = $_POST['productoId'];
+
+  // Verificar si el producto ya está en el carrito
+  $productoEnCarrito = false;
+  if (isset($_SESSION['carrito'])) {
+    foreach ($_SESSION['carrito'] as $producto) {
+      if ($producto['id'] === $productoId) {
+        $productoEnCarrito = true;
+        break;
+      }
+    }
+  }
+
+  if (!$productoEnCarrito) {
+    // Agregar el producto al carrito
+    $conn = new mysqli($servername, $username, $password, $database);
+    if ($conn->connect_error) {
+      die("Error al conectar a la base de datos: " . $conn->connect_error);
+    }
+
+    $sql_producto = "SELECT id, nombre, descripcion, imagen FROM productos WHERE id = $productoId";
+    $result_producto = $conn->query($sql_producto);
+
+    if ($result_producto->num_rows > 0) {
+      $row = $result_producto->fetch_assoc();
+      $producto = [
+        'id' => $row['id'],
+        'nombre' => $row['nombre'],
+        'descripcion' => $row['descripcion'],
+        'imagen' => $row['imagen']
+      ];
+
+      // Agregar el producto al carrito de cotización
+      if (isset($_SESSION['carrito'])) {
+        $_SESSION['carrito'][] = $producto;
+      } else {
+        $_SESSION['carrito'] = [$producto];
+      }
+
+      $response = [
+        'success' => true,
+        'numProductos' => obtenerNumeroProductosCarrito()
+      ];
+      echo json_encode($response);
+    } else {
+      $response = [
+        'success' => false,
+        'error' => 'No se encontró el producto'
+      ];
+      echo json_encode($response);
+    }
+
+    $conn->close();
+    exit();
+  }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +102,13 @@ include '../scripts/config.php';
         <li><a href="contacto.html">CONTACTO</a></li>
       </ul>
     </nav>
+    <!-- Mostrar el número de productos en el carrito de cotización -->
+    <div id="carrito-container">
+      <a href="carrito.php">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="carrito-num-productos"><?php echo obtenerNumeroProductosCarrito(); ?></span>
+      </a>
+    </div>
   </header>
 
   <main>
@@ -89,9 +166,9 @@ include '../scripts/config.php';
           while ($row = $result_productos->fetch_assoc()) {
             echo "<div class='producto'>";
             echo "<h2>" . ucwords($row['nombre']) . "</h2>";
-            echo "<p>" . $row['descripcion'] . "</p>";
-            /*             echo "<p>ID: " . $row['id'] . "</p>"; */
             echo "<img src=\"../" . $row['imagen'] . "\" alt=\"" . $row['nombre'] . "\">";
+            echo "<p>" . $row['descripcion'] . "</p>";
+            echo "<button class='btn-agregar-carrito' data-producto-id='" . $row['id'] . "'>Agregar al carrito</button>";
             echo "</div>";
           }
           echo "</div>";
@@ -106,9 +183,7 @@ include '../scripts/config.php';
       ?>
     </div>
 
-
   </main>
-
 
   <footer>
     <p>&copy; 2023 Carnes AG. Todos los derechos reservados.</p>
@@ -145,6 +220,33 @@ include '../scripts/config.php';
       </div>
     </div>
   </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    // Manejar el clic del botón "Agregar al carrito"
+    $(document).on('click', '.btn-agregar-carrito', function() {
+      var productoId = $(this).data('producto-id');
+      $.ajax({
+        url: 'productos.php',
+        method: 'POST',
+        data: {
+          productoId: productoId
+        },
+        dataType: 'json',
+        success: function(response) {
+          if (response.success) {
+            $('#carrito-num-productos').text(response.numProductos);
+            alert('El producto se ha agregado al carrito.');
+          } else {
+            alert(response.error);
+          }
+        },
+        error: function(xhr, status, error) {
+          console.log(xhr.responseText);
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>

@@ -49,7 +49,7 @@
         <div class="col-md-6 mx-auto">
           <div class="card">
             <div class="card-body">
-              <form action="#" method="post">
+              <form id="formulario-contacto" action="#" method="post">
                 <div class="form-group mb-3">
                   <label for="nombre" class="required-field">Nombre</label>
                   <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre" required>
@@ -93,8 +93,7 @@
                   <small class="form-text text-muted" id="mensaje-counter">0/1000 caracteres</small>
                 </div>
                 <div class="form-group">
-                  <button type="submit" class="btn btn-primary btn-block my-3"
-                    formaction="../scripts/procesar_formulario.php">Enviar</button>
+                  <button type="submit" id="enviar-formulario" class="btn btn-primary btn-block my-3">Enviar</button>
                 </div>
               </form>
             </div>
@@ -107,7 +106,6 @@
   <footer>
     <p>&copy; 2023 Carnes AG. Todos los derechos reservados.</p>
   </footer>
-
   <div class="footer-secondary">
     <div class="footer-column">
       <nav>
@@ -150,6 +148,44 @@
       mensajeCounter.textContent = charactersCount + "/1000 caracteres";
     });
   </script>
+
+  <script>
+    // Seleccionar el formulario y el botón de enviar
+    const formulario = document.getElementById("formulario-contacto");
+    const enviarBoton = document.getElementById("enviar-formulario");
+
+    // Agregar un evento al enviarBoton para manejar el envío del formulario
+    enviarBoton.addEventListener("click", function (event) {
+      event.preventDefault(); // Evitar el comportamiento de envío predeterminado
+
+      // Crear una instancia de XMLHttpRequest
+      const xhr = new XMLHttpRequest();
+
+      // Configurar la solicitud AJAX
+      xhr.open("POST", "scripts/procesar_formulario.php", true);
+
+      // Configurar el encabezado de la solicitud
+      xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+      // Obtener los datos del formulario
+      const formData = new FormData(formulario);
+
+      // Enviar la solicitud AJAX con los datos del formulario
+      xhr.send(formData);
+
+      // Manejar la respuesta de la solicitud
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          // Mostrar la respuesta en la consola (puedes modificar esto según tus necesidades)
+          console.log(xhr.responseText);
+
+          // Restablecer los valores del formulario si es necesario
+          formulario.reset();
+        }
+      };
+    });
+  </script>
+
 </body>
 
 </html>
